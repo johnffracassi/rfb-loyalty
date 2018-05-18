@@ -20,13 +20,13 @@ docker {
     if (System.env.DOCKER_CERT_PATH) {
         certPath = new File(System.env.DOCKER_CERT_PATH)
     }
-//    registryCredentials {
+    registryCredentials {
 //        //url default value
 //        //url = 'https://index.docker.io/v1/'
-//        username = 'springframeworkguru'
-//        password = (System.env.DOCKER_HUB_PWD)
-//        email = 'john@springframework.guru'
-//    }
+        username = 'johnffracassi'
+        password = (System.env.DOCKER_HUB_PWD)
+        email = 'johnffracassi@gmail.com'
+    }
 }
 
 task copyDockerFiles(type: Copy) {
