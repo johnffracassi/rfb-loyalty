@@ -21,8 +21,6 @@ docker {
         certPath = new File(System.env.DOCKER_CERT_PATH)
     }
     registryCredentials {
-//        //url default value
-//        //url = 'https://index.docker.io/v1/'
         username = 'johnffracassi'
         password = (System.env.DOCKER_HUB_PWD)
         email = 'johnffracassi@gmail.com'

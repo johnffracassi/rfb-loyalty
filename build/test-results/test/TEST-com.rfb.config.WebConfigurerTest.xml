@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rfb.config.WebConfigurerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-05-18T20:21:00" hostname="MacBook-Air-4.local" time="0.579">
+  <properties/>
+  <testcase name="testCorsFilterOnOtherPath" classname="com.rfb.config.WebConfigurerTest" time="0.387"/>
+  <testcase name="testCorsFilterDeactivated" classname="com.rfb.config.WebConfigurerTest" time="0.024"/>
+  <testcase name="testStartUpProdServletContext" classname="com.rfb.config.WebConfigurerTest" time="0.089"/>
+  <testcase name="testUndertowHttp2Enabled" classname="com.rfb.config.WebConfigurerTest" time="0.026"/>
+  <testcase name="testCorsFilterOnApiPath" classname="com.rfb.config.WebConfigurerTest" time="0.023"/>
+  <testcase name="testStartUpDevServletContext" classname="com.rfb.config.WebConfigurerTest" time="0.006"/>
+  <testcase name="testCorsFilterDeactivated2" classname="com.rfb.config.WebConfigurerTest" time="0.018"/>
+  <testcase name="testCustomizeServletContainer" classname="com.rfb.config.WebConfigurerTest" time="0.004"/>
+  <system-out><![CDATA[2018-05-18 16:21:00.811  INFO 2943 --- [    Test worker] com.rfb.config.WebConfigurer             : Web application configuration, using profiles: prod
+2018-05-18 16:21:00.885  INFO 2943 --- [    Test worker] com.rfb.config.WebConfigurer             : Web application fully configured
+2018-05-18 16:21:00.952  INFO 2943 --- [    Test worker] com.rfb.config.WebConfigurer             : Web application configuration, using profiles: dev
+2018-05-18 16:21:00.954  INFO 2943 --- [    Test worker] com.rfb.config.WebConfigurer             : Web application fully configured
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

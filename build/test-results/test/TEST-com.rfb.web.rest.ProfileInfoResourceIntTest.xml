@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rfb.web.rest.ProfileInfoResourceIntTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-05-18T20:21:04" hostname="MacBook-Air-4.local" time="0.09">
+  <properties/>
+  <testcase name="getProfileInfoWithoutActiveProfiles" classname="com.rfb.web.rest.ProfileInfoResourceIntTest" time="0.028"/>
+  <testcase name="getProfileInfoWithoutRibbon" classname="com.rfb.web.rest.ProfileInfoResourceIntTest" time="0.027"/>
+  <testcase name="getProfileInfoWithRibbon" classname="com.rfb.web.rest.ProfileInfoResourceIntTest" time="0.032"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

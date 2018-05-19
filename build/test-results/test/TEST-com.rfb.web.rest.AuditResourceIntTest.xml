@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rfb.web.rest.AuditResourceIntTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-05-18T20:21:10" hostname="MacBook-Air-4.local" time="0.167">
+  <properties/>
+  <testcase name="getNonExistingAudit" classname="com.rfb.web.rest.AuditResourceIntTest" time="0.025"/>
+  <testcase name="getNonExistingAuditsByDate" classname="com.rfb.web.rest.AuditResourceIntTest" time="0.028"/>
+  <testcase name="getAllAudits" classname="com.rfb.web.rest.AuditResourceIntTest" time="0.058"/>
+  <testcase name="getAuditsByDate" classname="com.rfb.web.rest.AuditResourceIntTest" time="0.028"/>
+  <testcase name="getAudit" classname="com.rfb.web.rest.AuditResourceIntTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
