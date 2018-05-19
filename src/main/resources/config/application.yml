@@ -105,4 +105,7 @@ jhipster:
 # http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-application:
+logging:
+    level:
+        com.rfb.service: debug
+        com.rfb.aop.logging: error

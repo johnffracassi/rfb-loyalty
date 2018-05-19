@@ -1,7 +1,13 @@
 package com.rfb.bootstrap;
 
-import com.rfb.domain.*;
-import com.rfb.repository.*;
+import com.rfb.domain.RfbEvent;
+import com.rfb.domain.RfbEventAttendance;
+import com.rfb.domain.RfbLocation;
+import com.rfb.domain.RfbUser;
+import com.rfb.repository.RfbEventAttendanceRepository;
+import com.rfb.repository.RfbEventRepository;
+import com.rfb.repository.RfbLocationRepository;
+import com.rfb.repository.RfbUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -68,6 +74,11 @@ public class RfbBootstrap implements CommandLineRunner {
 
         getRfbEventAttendance(rfbUser, yardOfAleEvent);
 
+        RfbLocation pourHouse = getRfbLocation("Tampa - Pour House", DayOfWeek.MONDAY.getValue());
+        RfbLocation macDintons = getRfbLocation("Tampa - Mac Dintons", DayOfWeek.TUESDAY.getValue());
+
+        RfbLocation satRun = getRfbLocation("Saturday Run for testing", DayOfWeek.SATURDAY.getValue());
+        RfbLocation sunRun = getRfbLocation("Sunday Run for testing", DayOfWeek.SUNDAY.getValue());
     }
 
 

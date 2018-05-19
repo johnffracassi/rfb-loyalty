@@ -245,3 +245,13 @@ if (project.hasProperty('nodeInstall')) {
 compileJava.dependsOn processResources
 processResources.dependsOn cleanResources,bootBuildInfo
 bootBuildInfo.mustRunAfter cleanResources
+
+idea {
+    module {
+        // if you hate browsing Javadoc
+        downloadJavadoc = true
+
+        // and love reading sources :)
+        downloadSources = true
+    }
+}
