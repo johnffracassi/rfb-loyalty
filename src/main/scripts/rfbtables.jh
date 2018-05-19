@@ -1,28 +1,28 @@
 entity RfbLocation {
-	locationName String,
+    locationName String,
     runDayOfWeek Integer
 }
 
 entity RfbEvent {
-	eventDate LocalDate,
+    eventDate LocalDate,
     eventCode String
 }
 
 entity RfbEventAttendance {
-	attendanceDate LocalDate
+    attendanceDate LocalDate
 }
 
 entity RfbUser {
-	username String
+    username String
 }
 
 relationship OneToMany {
-	RfbLocation{rvbEvent} to RfbEvent,
-    RfbEvent{rfbEventAttendance} to RfbEventAttendance
+    RfbLocation{rvbEvent} to RfbEvent,
+    RfbEvent{rfbEventAttendance} to RfbEventAttendance,
+    RfbUser{rfbEventAttendance} to RfbEventAttendance
 }
 
 relationship OneToOne {
-	RfbEventAttendance{rfbUser} to RfbUser,
     RfbUser{homeLocation} to RfbLocation
 }
 
