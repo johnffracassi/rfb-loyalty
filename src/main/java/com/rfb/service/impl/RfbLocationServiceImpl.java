@@ -1,8 +1,8 @@
 package com.rfb.service.impl;
 
-import com.rfb.service.RfbLocationService;
 import com.rfb.domain.RfbLocation;
 import com.rfb.repository.RfbLocationRepository;
+import com.rfb.service.RfbLocationService;
 import com.rfb.service.dto.RfbLocationDTO;
 import com.rfb.service.mapper.RfbLocationMapper;
 import org.slf4j.Logger;

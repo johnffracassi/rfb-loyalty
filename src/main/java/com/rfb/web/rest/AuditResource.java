@@ -2,7 +2,6 @@ package com.rfb.web.rest;
 
 import com.rfb.service.AuditEventService;
 import com.rfb.web.rest.util.PaginationUtil;
-
 import io.github.jhipster.web.util.ResponseUtil;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.data.domain.Page;

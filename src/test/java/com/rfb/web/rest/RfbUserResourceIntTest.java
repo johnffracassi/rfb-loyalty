@@ -1,14 +1,12 @@
 package com.rfb.web.rest;
 
 import com.rfb.RfbloyaltyApp;
-
 import com.rfb.domain.RfbUser;
 import com.rfb.repository.RfbUserRepository;
 import com.rfb.service.RfbUserService;
 import com.rfb.service.dto.RfbUserDTO;
 import com.rfb.service.mapper.RfbUserMapper;
 import com.rfb.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

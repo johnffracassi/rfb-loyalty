@@ -1,9 +1,9 @@
 package com.rfb.web.rest;
 
-import com.rfb.RfbloyaltyApp;
-import com.rfb.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
+import com.rfb.RfbloyaltyApp;
+import com.rfb.web.rest.vm.LoggerVM;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

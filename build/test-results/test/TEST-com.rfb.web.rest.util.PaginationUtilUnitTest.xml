@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.rfb.web.rest.util.PaginationUtilUnitTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-18T20:21:01" hostname="MacBook-Air-4.local" time="0.006">
-  <properties/>
-  <testcase name="generatePaginationHttpHeadersTest" classname="com.rfb.web.rest.util.PaginationUtilUnitTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

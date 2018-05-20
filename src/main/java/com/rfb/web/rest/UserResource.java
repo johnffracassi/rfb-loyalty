@@ -1,7 +1,7 @@
 package com.rfb.web.rest;
 
-import com.rfb.config.Constants;
 import com.codahale.metrics.annotation.Timed;
+import com.rfb.config.Constants;
 import com.rfb.domain.User;
 import com.rfb.repository.UserRepository;
 import com.rfb.security.AuthoritiesConstants;
@@ -14,7 +14,6 @@ import com.rfb.web.rest.errors.LoginAlreadyUsedException;
 import com.rfb.web.rest.util.HeaderUtil;
 import com.rfb.web.rest.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -28,7 +27,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for managing users.

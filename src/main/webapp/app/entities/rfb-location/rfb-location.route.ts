@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { JhiPaginationUtil } from 'ng-jhipster';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
+import {JhiPaginationUtil} from 'ng-jhipster';
 
-import { UserRouteAccessService } from '../../shared';
-import { RfbLocationComponent } from './rfb-location.component';
-import { RfbLocationDetailComponent } from './rfb-location-detail.component';
-import { RfbLocationPopupComponent } from './rfb-location-dialog.component';
-import { RfbLocationDeletePopupComponent } from './rfb-location-delete-dialog.component';
+import {UserRouteAccessService} from '../../shared';
+import {RfbLocationComponent} from './rfb-location.component';
+import {RfbLocationDetailComponent} from './rfb-location-detail.component';
+import {RfbLocationPopupComponent} from './rfb-location-dialog.component';
+import {RfbLocationDeletePopupComponent} from './rfb-location-delete-dialog.component';
 
 @Injectable()
 export class RfbLocationResolvePagingParams implements Resolve<any> {

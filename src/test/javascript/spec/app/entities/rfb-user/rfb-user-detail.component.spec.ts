@@ -1,12 +1,12 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbUserDetailComponent } from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user-detail.component';
-import { RfbUserService } from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.service';
-import { RfbUser } from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.model';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbUserDetailComponent} from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user-detail.component';
+import {RfbUserService} from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.service';
+import {RfbUser} from '../../../../../../main/webapp/app/entities/rfb-user/rfb-user.model';
 
 describe('Component Tests', () => {
 

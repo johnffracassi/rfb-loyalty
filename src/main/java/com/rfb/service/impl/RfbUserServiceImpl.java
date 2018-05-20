@@ -1,8 +1,8 @@
 package com.rfb.service.impl;
 
-import com.rfb.service.RfbUserService;
 import com.rfb.domain.RfbUser;
 import com.rfb.repository.RfbUserRepository;
+import com.rfb.service.RfbUserService;
 import com.rfb.service.dto.RfbUserDTO;
 import com.rfb.service.mapper.RfbUserMapper;
 import org.slf4j.Logger;

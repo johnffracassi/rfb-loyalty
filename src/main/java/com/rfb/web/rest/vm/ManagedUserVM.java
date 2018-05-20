@@ -1,6 +1,7 @@
 package com.rfb.web.rest.vm;
 
 import com.rfb.service.dto.UserDTO;
+
 import javax.validation.constraints.Size;
 
 /**

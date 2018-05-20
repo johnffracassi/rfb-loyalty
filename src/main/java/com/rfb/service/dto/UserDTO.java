@@ -1,14 +1,13 @@
 package com.rfb.service.dto;
 
 import com.rfb.config.Constants;
-
 import com.rfb.domain.Authority;
 import com.rfb.domain.User;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,7 +21,7 @@ public class UserDTO {
 
     @NotBlank
     @Pattern(regexp = Constants.LOGIN_REGEX)
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     private String login;
 
     @Size(max = 50)

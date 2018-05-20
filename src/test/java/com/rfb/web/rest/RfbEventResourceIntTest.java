@@ -1,14 +1,12 @@
 package com.rfb.web.rest;
 
 import com.rfb.RfbloyaltyApp;
-
 import com.rfb.domain.RfbEvent;
 import com.rfb.repository.RfbEventRepository;
 import com.rfb.service.RfbEventService;
 import com.rfb.service.dto.RfbEventDTO;
 import com.rfb.service.mapper.RfbEventMapper;
 import com.rfb.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

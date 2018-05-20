@@ -2,9 +2,9 @@ package com.rfb.repository;
 
 import com.rfb.domain.PersistentToken;
 import com.rfb.domain.User;
-import java.time.LocalDate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**

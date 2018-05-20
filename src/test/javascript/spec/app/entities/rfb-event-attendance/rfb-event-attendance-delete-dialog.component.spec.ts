@@ -1,12 +1,12 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs/Observable';
-import { JhiEventManager } from 'ng-jhipster';
+import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Observable} from 'rxjs/Observable';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbEventAttendanceDeleteDialogComponent } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance-delete-dialog.component';
-import { RfbEventAttendanceService } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.service';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbEventAttendanceDeleteDialogComponent} from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance-delete-dialog.component';
+import {RfbEventAttendanceService} from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.service';
 
 describe('Component Tests', () => {
 

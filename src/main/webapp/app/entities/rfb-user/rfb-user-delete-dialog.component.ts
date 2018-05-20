@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { RfbUser } from './rfb-user.model';
-import { RfbUserPopupService } from './rfb-user-popup.service';
-import { RfbUserService } from './rfb-user.service';
+import {RfbUser} from './rfb-user.model';
+import {RfbUserPopupService} from './rfb-user-popup.service';
+import {RfbUserService} from './rfb-user.service';
 
 @Component({
     selector: 'jhi-rfb-user-delete-dialog',

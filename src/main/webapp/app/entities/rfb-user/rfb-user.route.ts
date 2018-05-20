@@ -1,10 +1,10 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
-import { UserRouteAccessService } from '../../shared';
-import { RfbUserComponent } from './rfb-user.component';
-import { RfbUserDetailComponent } from './rfb-user-detail.component';
-import { RfbUserPopupComponent } from './rfb-user-dialog.component';
-import { RfbUserDeletePopupComponent } from './rfb-user-delete-dialog.component';
+import {UserRouteAccessService} from '../../shared';
+import {RfbUserComponent} from './rfb-user.component';
+import {RfbUserDetailComponent} from './rfb-user-detail.component';
+import {RfbUserPopupComponent} from './rfb-user-dialog.component';
+import {RfbUserDeletePopupComponent} from './rfb-user-delete-dialog.component';
 
 export const rfbUserRoute: Routes = [
     {

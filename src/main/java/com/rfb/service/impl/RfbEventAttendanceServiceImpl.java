@@ -1,8 +1,8 @@
 package com.rfb.service.impl;
 
-import com.rfb.service.RfbEventAttendanceService;
 import com.rfb.domain.RfbEventAttendance;
 import com.rfb.repository.RfbEventAttendanceRepository;
+import com.rfb.service.RfbEventAttendanceService;
 import com.rfb.service.dto.RfbEventAttendanceDTO;
 import com.rfb.service.mapper.RfbEventAttendanceMapper;
 import org.slf4j.Logger;

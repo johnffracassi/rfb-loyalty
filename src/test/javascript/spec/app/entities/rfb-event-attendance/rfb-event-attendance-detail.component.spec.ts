@@ -1,12 +1,12 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbEventAttendanceDetailComponent } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance-detail.component';
-import { RfbEventAttendanceService } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.service';
-import { RfbEventAttendance } from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.model';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbEventAttendanceDetailComponent} from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance-detail.component';
+import {RfbEventAttendanceService} from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.service';
+import {RfbEventAttendance} from '../../../../../../main/webapp/app/entities/rfb-event-attendance/rfb-event-attendance.model';
 
 describe('Component Tests', () => {
 

@@ -1,10 +1,10 @@
-import { Injector } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {Injector} from '@angular/core';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
-import { AuthServerProvider } from '../../shared/auth/auth-session.service';
-import { LoginModalService } from '../../shared/login/login-modal.service';
-import { StateStorageService } from '../../shared/auth/state-storage.service';
+import {AuthServerProvider} from '../../shared/auth/auth-session.service';
+import {LoginModalService} from '../../shared/login/login-modal.service';
+import {StateStorageService} from '../../shared/auth/state-storage.service';
 
 export class AuthExpiredInterceptor implements HttpInterceptor {
 

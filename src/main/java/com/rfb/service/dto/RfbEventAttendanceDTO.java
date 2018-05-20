@@ -1,10 +1,8 @@
 package com.rfb.service.dto;
 
 
-import java.time.LocalDate;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**

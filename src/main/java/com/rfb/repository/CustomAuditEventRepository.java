@@ -3,7 +3,6 @@ package com.rfb.repository;
 import com.rfb.config.Constants;
 import com.rfb.config.audit.AuditEventConverter;
 import com.rfb.domain.PersistentAuditEvent;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;

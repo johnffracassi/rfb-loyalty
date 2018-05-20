@@ -3,7 +3,6 @@ package com.rfb.security;
 import com.rfb.RfbloyaltyApp;
 import com.rfb.domain.User;
 import com.rfb.repository.UserRepository;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;

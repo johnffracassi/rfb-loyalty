@@ -1,10 +1,9 @@
 package com.rfb.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-
 import com.rfb.domain.PersistentToken;
-import com.rfb.repository.PersistentTokenRepository;
 import com.rfb.domain.User;
+import com.rfb.repository.PersistentTokenRepository;
 import com.rfb.repository.UserRepository;
 import com.rfb.security.SecurityUtils;
 import com.rfb.service.MailService;
@@ -13,7 +12,6 @@ import com.rfb.service.dto.UserDTO;
 import com.rfb.web.rest.errors.*;
 import com.rfb.web.rest.vm.KeyAndPasswordVM;
 import com.rfb.web.rest.vm.ManagedUserVM;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for managing the current user's account.

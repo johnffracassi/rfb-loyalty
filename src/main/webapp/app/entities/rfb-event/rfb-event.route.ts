@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
-import { JhiPaginationUtil } from 'ng-jhipster';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
+import {JhiPaginationUtil} from 'ng-jhipster';
 
-import { UserRouteAccessService } from '../../shared';
-import { RfbEventComponent } from './rfb-event.component';
-import { RfbEventDetailComponent } from './rfb-event-detail.component';
-import { RfbEventPopupComponent } from './rfb-event-dialog.component';
-import { RfbEventDeletePopupComponent } from './rfb-event-delete-dialog.component';
+import {UserRouteAccessService} from '../../shared';
+import {RfbEventComponent} from './rfb-event.component';
+import {RfbEventDetailComponent} from './rfb-event-detail.component';
+import {RfbEventPopupComponent} from './rfb-event-dialog.component';
+import {RfbEventDeletePopupComponent} from './rfb-event-delete-dialog.component';
 
 @Injectable()
 export class RfbEventResolvePagingParams implements Resolve<any> {

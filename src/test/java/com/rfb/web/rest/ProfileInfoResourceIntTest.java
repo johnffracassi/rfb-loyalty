@@ -1,7 +1,7 @@
 package com.rfb.web.rest;
 
-import io.github.jhipster.config.JHipsterProperties;
 import com.rfb.RfbloyaltyApp;
+import io.github.jhipster.config.JHipsterProperties;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

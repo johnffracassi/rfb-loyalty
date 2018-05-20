@@ -1,7 +1,6 @@
 package com.rfb.repository;
 
 import com.rfb.domain.Authority;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

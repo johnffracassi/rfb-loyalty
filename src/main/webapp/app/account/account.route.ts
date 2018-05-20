@@ -1,13 +1,14 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 import {
     activateRoute,
-    passwordRoute,
     passwordResetFinishRoute,
     passwordResetInitRoute,
+    passwordRoute,
     registerRoute,
     sessionsRoute,
-    settingsRoute
+    settingsRoute,
+    socialRegisterRoute
 } from './';
 
 const ACCOUNT_ROUTES = [
@@ -17,6 +18,7 @@ const ACCOUNT_ROUTES = [
     passwordResetInitRoute,
     registerRoute,
     sessionsRoute,
+    socialRegisterRoute,
     settingsRoute
 ];
 

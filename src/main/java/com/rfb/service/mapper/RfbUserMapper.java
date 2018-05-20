@@ -1,9 +1,9 @@
 package com.rfb.service.mapper;
 
-import com.rfb.domain.*;
+import com.rfb.domain.RfbUser;
 import com.rfb.service.dto.RfbUserDTO;
-
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Mapper for the entity RfbUser and its DTO RfbUserDTO.

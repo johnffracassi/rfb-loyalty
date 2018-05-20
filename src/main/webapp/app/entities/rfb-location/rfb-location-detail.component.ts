@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs/Subscription';
-import { JhiEventManager } from 'ng-jhipster';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs/Subscription';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { RfbLocation } from './rfb-location.model';
-import { RfbLocationService } from './rfb-location.service';
+import {RfbLocation} from './rfb-location.model';
+import {RfbLocationService} from './rfb-location.service';
 
 @Component({
     selector: 'jhi-rfb-location-detail',

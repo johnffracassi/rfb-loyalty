@@ -1,7 +1,7 @@
 package com.rfb.service;
-import com.rfb.config.Constants;
 
 import com.rfb.RfbloyaltyApp;
+import com.rfb.config.Constants;
 import com.rfb.domain.User;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.Before;

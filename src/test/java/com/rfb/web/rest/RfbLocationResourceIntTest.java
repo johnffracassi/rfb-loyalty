@@ -1,14 +1,12 @@
 package com.rfb.web.rest;
 
 import com.rfb.RfbloyaltyApp;
-
 import com.rfb.domain.RfbLocation;
 import com.rfb.repository.RfbLocationRepository;
 import com.rfb.service.RfbLocationService;
 import com.rfb.service.dto.RfbLocationDTO;
 import com.rfb.service.mapper.RfbLocationMapper;
 import com.rfb.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

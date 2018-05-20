@@ -1,9 +1,9 @@
-import { Injectable, Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { HttpResponse } from '@angular/common/http';
-import { RfbEvent } from './rfb-event.model';
-import { RfbEventService } from './rfb-event.service';
+import {Component, Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {HttpResponse} from '@angular/common/http';
+import {RfbEvent} from './rfb-event.model';
+import {RfbEventService} from './rfb-event.service';
 
 @Injectable()
 export class RfbEventPopupService {

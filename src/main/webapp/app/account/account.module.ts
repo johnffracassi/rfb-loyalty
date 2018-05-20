@@ -1,24 +1,25 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { RfbloyaltySharedModule } from '../shared';
+import {RfbloyaltySharedModule} from '../shared';
 
 import {
-    Register,
-    ActivateService,
-    PasswordService,
-    PasswordResetInitService,
-    PasswordResetFinishService,
-    SessionsService,
-    SessionsComponent,
-    PasswordStrengthBarComponent,
-    RegisterComponent,
+    accountState,
     ActivateComponent,
+    ActivateService,
     PasswordComponent,
-    PasswordResetInitComponent,
     PasswordResetFinishComponent,
+    PasswordResetFinishService,
+    PasswordResetInitComponent,
+    PasswordResetInitService,
+    PasswordService,
+    PasswordStrengthBarComponent,
+    Register,
+    RegisterComponent,
+    SessionsComponent,
+    SessionsService,
     SettingsComponent,
-    accountState
+    SocialRegisterComponent
 } from './';
 
 @NgModule({
@@ -27,6 +28,7 @@ import {
         RouterModule.forChild(accountState)
     ],
     declarations: [
+        SocialRegisterComponent,
         ActivateComponent,
         RegisterComponent,
         PasswordComponent,

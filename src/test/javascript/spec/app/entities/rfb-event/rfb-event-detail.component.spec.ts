@@ -1,12 +1,12 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbEventDetailComponent } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event-detail.component';
-import { RfbEventService } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.service';
-import { RfbEvent } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.model';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbEventDetailComponent} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event-detail.component';
+import {RfbEventService} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.service';
+import {RfbEvent} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.model';
 
 describe('Component Tests', () => {
 

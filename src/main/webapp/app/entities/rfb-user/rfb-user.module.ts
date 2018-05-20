@@ -1,18 +1,18 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 
-import { RfbloyaltySharedModule } from '../../shared';
+import {RfbloyaltySharedModule} from '../../shared';
 import {
-    RfbUserService,
-    RfbUserPopupService,
     RfbUserComponent,
+    RfbUserDeleteDialogComponent,
+    RfbUserDeletePopupComponent,
     RfbUserDetailComponent,
     RfbUserDialogComponent,
     RfbUserPopupComponent,
-    RfbUserDeletePopupComponent,
-    RfbUserDeleteDialogComponent,
-    rfbUserRoute,
     rfbUserPopupRoute,
+    RfbUserPopupService,
+    rfbUserRoute,
+    RfbUserService,
 } from './';
 
 const ENTITY_STATES = [

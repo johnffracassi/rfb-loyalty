@@ -1,10 +1,10 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
-import { UserRouteAccessService } from '../../shared';
-import { RfbEventAttendanceComponent } from './rfb-event-attendance.component';
-import { RfbEventAttendanceDetailComponent } from './rfb-event-attendance-detail.component';
-import { RfbEventAttendancePopupComponent } from './rfb-event-attendance-dialog.component';
-import { RfbEventAttendanceDeletePopupComponent } from './rfb-event-attendance-delete-dialog.component';
+import {UserRouteAccessService} from '../../shared';
+import {RfbEventAttendanceComponent} from './rfb-event-attendance.component';
+import {RfbEventAttendanceDetailComponent} from './rfb-event-attendance-detail.component';
+import {RfbEventAttendancePopupComponent} from './rfb-event-attendance-dialog.component';
+import {RfbEventAttendanceDeletePopupComponent} from './rfb-event-attendance-delete-dialog.component';
 
 export const rfbEventAttendanceRoute: Routes = [
     {

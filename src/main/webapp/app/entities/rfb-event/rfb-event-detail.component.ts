@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs/Subscription';
-import { JhiEventManager } from 'ng-jhipster';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {HttpResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs/Subscription';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { RfbEvent } from './rfb-event.model';
-import { RfbEventService } from './rfb-event.service';
+import {RfbEvent} from './rfb-event.model';
+import {RfbEventService} from './rfb-event.service';
 
 @Component({
     selector: 'jhi-rfb-event-detail',

@@ -1,9 +1,9 @@
 package com.rfb.service.mapper;
 
-import com.rfb.domain.*;
+import com.rfb.domain.RfbEventAttendance;
 import com.rfb.service.dto.RfbEventAttendanceDTO;
-
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Mapper for the entity RfbEventAttendance and its DTO RfbEventAttendanceDTO.

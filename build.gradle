@@ -204,6 +204,11 @@ dependencies {
     compile "mysql:mysql-connector-java"
     compile "org.mapstruct:mapstruct-jdk8:${mapstruct_version}"
     compileOnly 'org.projectlombok:lombok:1.16.20'
+    compile "org.apache.httpcomponents:httpclient"
+    compile "org.springframework.social:spring-social-security"
+    compile "org.springframework.social:spring-social-google"
+    compile "org.springframework.social:spring-social-facebook"
+    compile "org.springframework.social:spring-social-twitter"
     testCompile "com.jayway.jsonpath:json-path"
     testCompile ("org.springframework.boot:spring-boot-starter-test") {
         exclude group: 'com.vaadin.external.google', module: 'android-json'

@@ -1,12 +1,12 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbLocationDetailComponent } from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location-detail.component';
-import { RfbLocationService } from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location.service';
-import { RfbLocation } from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location.model';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbLocationDetailComponent} from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location-detail.component';
+import {RfbLocationService} from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location.service';
+import {RfbLocation} from '../../../../../../main/webapp/app/entities/rfb-location/rfb-location.model';
 
 describe('Component Tests', () => {
 

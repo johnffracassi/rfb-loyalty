@@ -1,15 +1,15 @@
 /* tslint:disable max-line-length */
-import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
-import { HttpResponse } from '@angular/common/http';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs/Observable';
-import { JhiEventManager } from 'ng-jhipster';
+import {async, ComponentFixture, fakeAsync, inject, TestBed, tick} from '@angular/core/testing';
+import {HttpResponse} from '@angular/common/http';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {Observable} from 'rxjs/Observable';
+import {JhiEventManager} from 'ng-jhipster';
 
-import { RfbloyaltyTestModule } from '../../../test.module';
-import { RfbEventDialogComponent } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event-dialog.component';
-import { RfbEventService } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.service';
-import { RfbEvent } from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.model';
-import { RfbLocationService } from '../../../../../../main/webapp/app/entities/rfb-location';
+import {RfbloyaltyTestModule} from '../../../test.module';
+import {RfbEventDialogComponent} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event-dialog.component';
+import {RfbEventService} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.service';
+import {RfbEvent} from '../../../../../../main/webapp/app/entities/rfb-event/rfb-event.model';
+import {RfbLocationService} from '../../../../../../main/webapp/app/entities/rfb-location';
 
 describe('Component Tests', () => {
 
