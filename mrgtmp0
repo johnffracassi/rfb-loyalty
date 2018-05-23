@@ -19,7 +19,7 @@
     "messageBroker": false,
     "serviceDiscoveryType": false,
     "buildTool": "gradle",
-    "enableSocialSignIn": false,
+    "enableSocialSignIn": true,
     "enableSwaggerCodegen": false,
     "rememberMeKey": "9bafa74da834a65b276cba7014134bb39c63b839",
     "clientFramework": "angularX",
