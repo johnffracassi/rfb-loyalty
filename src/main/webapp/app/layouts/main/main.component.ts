@@ -9,6 +9,8 @@ import {Title} from '@angular/platform-browser';
 })
 export class JhiMainComponent implements OnInit {
 
+    cardStyles: string;
+
     constructor(
         private titleService: Title,
         private router: Router
