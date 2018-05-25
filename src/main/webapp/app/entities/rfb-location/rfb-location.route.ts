@@ -32,16 +32,16 @@ export const rfbLocationRoute: Routes = [
             'pagingParams': RfbLocationResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'RfbLocations'
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Locations'
         },
         canActivate: [UserRouteAccessService]
     }, {
         path: 'rfb-location/:id',
         component: RfbLocationDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'RfbLocations'
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Locations'
         },
         canActivate: [UserRouteAccessService]
     }
@@ -52,8 +52,8 @@ export const rfbLocationPopupRoute: Routes = [
         path: 'rfb-location-new',
         component: RfbLocationPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'RfbLocations'
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Locations'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -62,8 +62,8 @@ export const rfbLocationPopupRoute: Routes = [
         path: 'rfb-location/:id/edit',
         component: RfbLocationPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'RfbLocations'
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Locations'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
@@ -72,8 +72,8 @@ export const rfbLocationPopupRoute: Routes = [
         path: 'rfb-location/:id/delete',
         component: RfbLocationDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'RfbLocations'
+            authorities: ['ROLE_ADMIN'],
+            pageTitle: 'Locations'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'

@@ -2,9 +2,11 @@ package com.rfb.service.impl;
 
 import com.rfb.domain.RfbEvent;
 import com.rfb.repository.RfbEventRepository;
+import com.rfb.repository.RfbLocationRepository;
 import com.rfb.service.RfbEventService;
 import com.rfb.service.dto.RfbEventDTO;
 import com.rfb.service.mapper.RfbEventMapper;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
+@AllArgsConstructor
 public class RfbEventServiceImpl implements RfbEventService {
 
     private final Logger log = LoggerFactory.getLogger(RfbEventServiceImpl.class);
@@ -26,10 +29,7 @@ public class RfbEventServiceImpl implements RfbEventService {
 
     private final RfbEventMapper rfbEventMapper;
 
-    public RfbEventServiceImpl(RfbEventRepository rfbEventRepository, RfbEventMapper rfbEventMapper) {
-        this.rfbEventRepository = rfbEventRepository;
-        this.rfbEventMapper = rfbEventMapper;
-    }
+    private final RfbLocationRepository locationRepository;
 
     /**
      * Save a rfbEvent.

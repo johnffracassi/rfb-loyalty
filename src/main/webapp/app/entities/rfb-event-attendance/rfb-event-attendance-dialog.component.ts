@@ -42,6 +42,10 @@ export class RfbEventAttendanceDialogComponent implements OnInit {
             .subscribe((res: HttpResponse<RfbEvent[]>) => { this.rfbevents = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.rfbUserService.query()
             .subscribe((res: HttpResponse<RfbUser[]>) => { this.rfbusers = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        if (typeof this.rfbEventAttendance.rfbEventDTO === 'undefined') {
+            this.rfbEventAttendance.rfbEventDTO = new RfbEvent();
+            this.rfbEventAttendance.rfbUserDTO = new RfbUser();
+        }
     }
 
     clear() {

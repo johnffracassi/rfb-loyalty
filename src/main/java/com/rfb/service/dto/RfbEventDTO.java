@@ -1,6 +1,9 @@
 package com.rfb.service.dto;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -8,6 +11,8 @@ import java.util.Objects;
 /**
  * A DTO for the RfbEvent entity.
  */
+@Getter
+@Setter
 public class RfbEventDTO implements Serializable {
 
     private Long id;
@@ -16,39 +21,7 @@ public class RfbEventDTO implements Serializable {
 
     private String eventCode;
 
-    private Long rfbLocationId;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(LocalDate eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public String getEventCode() {
-        return eventCode;
-    }
-
-    public void setEventCode(String eventCode) {
-        this.eventCode = eventCode;
-    }
-
-    public Long getRfbLocationId() {
-        return rfbLocationId;
-    }
-
-    public void setRfbLocationId(Long rfbLocationId) {
-        this.rfbLocationId = rfbLocationId;
-    }
+    private RfbLocationDTO rfbLocationDTO;
 
     @Override
     public boolean equals(Object o) {

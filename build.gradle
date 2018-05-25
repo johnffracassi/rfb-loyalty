@@ -108,7 +108,7 @@ test {
 
     // set heap size for the test JVM(s)
     minHeapSize = "128m"
-    maxHeapSize = "1024m"
+    maxHeapSize = "512m"
 }
 
 task testReport(type: TestReport) {
@@ -203,7 +203,7 @@ dependencies {
     compile "io.springfox:springfox-bean-validators"
     compile "mysql:mysql-connector-java"
     compile "org.mapstruct:mapstruct-jdk8:${mapstruct_version}"
-    compileOnly 'org.projectlombok:lombok:1.16.20'
+    compile "org.projectlombok:lombok:1.16.20"
     compile "org.apache.httpcomponents:httpclient"
     compile "org.springframework.social:spring-social-security"
     compile "org.springframework.social:spring-social-google"
@@ -251,9 +251,28 @@ compileJava.dependsOn processResources
 processResources.dependsOn cleanResources,bootBuildInfo
 bootBuildInfo.mustRunAfter cleanResources
 
+def generatedSources = "$buildDir/generated"
+def generatedOutputDir = file("$generatedSources")
+
+/*
+ see: https://youtrack.jetbrains.com/issue/IDEA-124090
+ create generated .java files in different folder than classes
+ In IntelliJ 2016.3.x: Enable Annotation Processing, then set generated sources,
+ relative to module output dir, at path '../../generated'
+ */
+compileJava {
+    doFirst {
+        generatedOutputDir.exists() || generatedOutputDir.mkdirs()
+        options.compilerArgs = [
+            '-s', "${generatedSources}"
+        ]
+    }
+}
+
 idea {
     module {
-        downloadJavadoc = true
         downloadSources = true
+        // tell intellij where to find generated sources
+        sourceDirs += generatedOutputDir
     }
 }

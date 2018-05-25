@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {SERVER_API_URL} from '../../app.constants';
 
@@ -7,6 +7,7 @@ import {JhiDateUtils} from 'ng-jhipster';
 
 import {RfbEvent} from './rfb-event.model';
 import {createRequestOption} from '../../shared';
+import {RfbLocation} from "../rfb-location";
 
 export type EntityResponseType = HttpResponse<RfbEvent>;
 
@@ -42,6 +43,12 @@ export class RfbEventService {
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
+    }
+
+    findByLocation(locationId: number): Observable<HttpResponse<RfbLocation[]>> {
+        let options: HttpParams = new HttpParams();
+        return this.http.get<RfbLocation[]>(`${this.resourceUrl}/byLocation/${locationId}`, { params: options, observe: 'response' })
+            .map((res: HttpResponse<RfbLocation[]>) => this.convertArrayResponse(res));
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {

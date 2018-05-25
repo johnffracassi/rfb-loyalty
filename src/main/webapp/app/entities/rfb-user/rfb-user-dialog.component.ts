@@ -36,11 +36,11 @@ export class RfbUserDialogComponent implements OnInit {
         this.rfbLocationService
             .query({filter: 'rfbuser-is-null'})
             .subscribe((res: HttpResponse<RfbLocation[]>) => {
-                if (!this.rfbUser.homeLocationId) {
+                if (!this.rfbUser.rfbLocationDTO) {
                     this.homelocations = res.body;
                 } else {
                     this.rfbLocationService
-                        .find(this.rfbUser.homeLocationId)
+                        .find(this.rfbUser.rfbLocationDTO.id)
                         .subscribe((subRes: HttpResponse<RfbLocation>) => {
                             this.homelocations = [subRes.body].concat(res.body);
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));

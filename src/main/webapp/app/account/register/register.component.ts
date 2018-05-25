@@ -1,9 +1,13 @@
 import {AfterViewInit, Component, ElementRef, OnInit, Renderer} from '@angular/core';
-import {HttpErrorResponse} from '@angular/common/http';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 import {Register} from './register.service';
 import {EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE, LoginModalService} from '../../shared';
+import { RfbLocationService } from '../../entities/rfb-location/rfb-location.service';
+import { RfbLocation } from '../../entities/rfb-location/rfb-location.model';
+import { RfbUserService } from '../../entities/rfb-user/rfb-user.service';
+import {RfbUser} from "../../entities/rfb-user";
 
 @Component({
     selector: 'jhi-register',
@@ -19,18 +23,24 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     registerAccount: any;
     success: boolean;
     modalRef: NgbModalRef;
+    locations: RfbLocation[];
 
     constructor(
         private loginModalService: LoginModalService,
         private registerService: Register,
         private elementRef: ElementRef,
-        private renderer: Renderer
+        private renderer: Renderer,
+        private locationService: RfbLocationService,
+        private runnersService: RfbUserService
     ) {
     }
 
     ngOnInit() {
         this.success = false;
-        this.registerAccount = {};
+        this.registerAccount = {
+            homeLocation: null
+        };
+        this.loadLocations();
     }
 
     ngAfterViewInit() {
@@ -54,6 +64,20 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
     openLogin() {
         this.modalRef = this.loginModalService.open();
+    }
+
+    loadLocations() {
+        this.locations = [];
+        this.locationService.query({
+            page: 0,
+            size: 100,
+            sort: ['locationName,runDayOfWeek', 'ASC']}).subscribe(
+            (res: HttpResponse<RfbLocation[]>) => {
+                this.locations = res.body;
+            },
+            (res: HttpResponse<RfbLocation[]>) => {
+            }
+        );
     }
 
     private processError(response: HttpErrorResponse) {

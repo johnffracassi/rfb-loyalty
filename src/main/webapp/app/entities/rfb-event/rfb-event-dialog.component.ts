@@ -36,6 +36,9 @@ export class RfbEventDialogComponent implements OnInit {
         this.isSaving = false;
         this.rfbLocationService.query()
             .subscribe((res: HttpResponse<RfbLocation[]>) => { this.rfblocations = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        if (typeof this.rfbEvent.rfbLocationDTO === 'undefined') {
+            this.rfbEvent.rfbLocationDTO = new RfbLocation();
+        }
     }
 
     clear() {
