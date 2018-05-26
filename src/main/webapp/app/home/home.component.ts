@@ -3,9 +3,9 @@ import {NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {JhiEventManager} from 'ng-jhipster';
 
 import {Account, LoginModalService, Principal} from '../shared';
-import {RfbLocation, RfbLocationService} from "../entities/rfb-location";
-import {RfbEventService} from "../entities/rfb-event";
-import {HttpResponse} from "@angular/common/http";
+import {RfbLocation, RfbLocationService} from '../entities/rfb-location';
+import {RfbEventService} from '../entities/rfb-event';
+import {HttpResponse} from '@angular/common/http';
 
 @Component({
     selector: 'jhi-home',
@@ -60,13 +60,21 @@ export class HomeComponent implements OnInit {
             size: 100,
             sort: ['locationName', 'ASC']}).subscribe(
             (res: HttpResponse<RfbLocation[]>) => {
-                this.locations = res.body
+                this.locations = res.body;
             },
-            (res: HttpResponse<RfbLocation[]>) => { console.log(res.body) }
+            (res: HttpResponse<RfbLocation[]>) => { console.log(res.body); }
         );
     }
 
-    save() {}
+    checkIn() {
+        console.log('check-in runner');
+        // get selected location
+        // get today's date
+        // get event code
+        // :: call event service and look for an event where those 3 items match
+        // :: if you find a match log an eventAttendance for this user (this.account) and that event
+        console.log(this.account);
+    }
 
     clear() {}
 

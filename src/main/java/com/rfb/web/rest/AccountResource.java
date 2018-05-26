@@ -2,8 +2,10 @@ package com.rfb.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.rfb.domain.PersistentToken;
+import com.rfb.domain.RfbLocation;
 import com.rfb.domain.User;
 import com.rfb.repository.PersistentTokenRepository;
+import com.rfb.repository.RfbLocationRepository;
 import com.rfb.repository.UserRepository;
 import com.rfb.security.SecurityUtils;
 import com.rfb.service.MailService;
@@ -12,10 +14,15 @@ import com.rfb.service.dto.UserDTO;
 import com.rfb.web.rest.errors.*;
 import com.rfb.web.rest.vm.KeyAndPasswordVM;
 import com.rfb.web.rest.vm.ManagedUserVM;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,25 +37,23 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class AccountResource {
 
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
+    @NonNull
     private final UserRepository userRepository;
-
+    @NonNull
     private final UserService userService;
-
+    @NonNull
     private final MailService mailService;
-
+    @NonNull
     private final PersistentTokenRepository persistentTokenRepository;
+    @NonNull
+    private final RfbLocationRepository locationRepository;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, PersistentTokenRepository persistentTokenRepository) {
-
-        this.userRepository = userRepository;
-        this.userService = userService;
-        this.mailService = mailService;
-        this.persistentTokenRepository = persistentTokenRepository;
-    }
+    private static final String CHECK_ERROR_MESSAGE = "Incorrect password";
 
     /**
      * POST  /register : register the user.
@@ -61,15 +66,37 @@ public class AccountResource {
     @PostMapping("/register")
     @Timed
     @ResponseStatus(HttpStatus.CREATED)
-    public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
+    public ResponseEntity registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
+
+        HttpHeaders textPlainHeaders = new HttpHeaders();
+        textPlainHeaders.setContentType(MediaType.TEXT_PLAIN);
         if (!checkPasswordLength(managedUserVM.getPassword())) {
-            throw new InvalidPasswordException();
+            return new ResponseEntity<>(CHECK_ERROR_MESSAGE, HttpStatus.BAD_REQUEST);
         }
-        userRepository.findOneByLogin(managedUserVM.getLogin().toLowerCase()).ifPresent(u -> {throw new LoginAlreadyUsedException();});
-        userRepository.findOneByEmailIgnoreCase(managedUserVM.getEmail()).ifPresent(u -> {throw new EmailAlreadyUsedException();});
-        User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
-        mailService.sendActivationEmail(user);
+        return userRepository.findOneByLogin(managedUserVM.getLogin().toLowerCase())
+            .map(user -> new ResponseEntity<>("login already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
+            .orElseGet(() -> userRepository.findOneByEmailIgnoreCase(managedUserVM.getEmail())
+                .map(user -> new ResponseEntity<>("email address already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
+                .orElseGet(() -> {
+                    RfbLocation homeLocation = null;
+
+                    if(managedUserVM.getHomeLocation() != null){
+                        homeLocation = locationRepository.findOne(managedUserVM.getHomeLocation());
+                    }
+
+                    User user = userService
+                        .createUser(managedUserVM.getLogin(), managedUserVM.getPassword(),
+                            managedUserVM.getFirstName(), managedUserVM.getLastName(),
+                            managedUserVM.getEmail().toLowerCase(), managedUserVM.getImageUrl(),
+                            managedUserVM.getLangKey(),
+                            homeLocation);
+
+                    mailService.sendActivationEmail(user);
+                    return new ResponseEntity<>(HttpStatus.CREATED);
+                })
+            );
     }
+
 
     /**
      * GET  /activate : activate the registered user.

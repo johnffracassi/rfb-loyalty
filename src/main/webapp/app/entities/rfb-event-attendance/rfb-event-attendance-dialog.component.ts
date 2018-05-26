@@ -10,9 +10,11 @@ import {RfbEventAttendance} from './rfb-event-attendance.model';
 import {RfbEventAttendancePopupService} from './rfb-event-attendance-popup.service';
 import {RfbEventAttendanceService} from './rfb-event-attendance.service';
 import {RfbEvent, RfbEventService} from '../rfb-event';
-import {RfbUser, RfbUserService} from '../rfb-user';
+import {User} from '../../shared';
+import {UserService} from '../../shared/user/user.service';
 
 @Component({
+
     selector: 'jhi-rfb-event-attendance-dialog',
     templateUrl: './rfb-event-attendance-dialog.component.html'
 })
@@ -23,15 +25,14 @@ export class RfbEventAttendanceDialogComponent implements OnInit {
 
     rfbevents: RfbEvent[];
 
-    rfbusers: RfbUser[];
-    attendanceDateDp: any;
+    users: User[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private rfbEventAttendanceService: RfbEventAttendanceService,
         private rfbEventService: RfbEventService,
-        private rfbUserService: RfbUserService,
+        private userService: UserService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -40,11 +41,11 @@ export class RfbEventAttendanceDialogComponent implements OnInit {
         this.isSaving = false;
         this.rfbEventService.query()
             .subscribe((res: HttpResponse<RfbEvent[]>) => { this.rfbevents = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.rfbUserService.query()
-            .subscribe((res: HttpResponse<RfbUser[]>) => { this.rfbusers = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.findByAuthority('ROLE_RUNNER')
+            .subscribe((res: HttpResponse<User[]>) => { this.users = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         if (typeof this.rfbEventAttendance.rfbEventDTO === 'undefined') {
             this.rfbEventAttendance.rfbEventDTO = new RfbEvent();
-            this.rfbEventAttendance.rfbUserDTO = new RfbUser();
+            this.rfbEventAttendance.userDTO = new User();
         }
     }
 
@@ -86,7 +87,7 @@ export class RfbEventAttendanceDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackRfbUserById(index: number, item: RfbUser) {
+    trackRfbUserById(index: number, item: User) {
         return item.id;
     }
 }

@@ -26,7 +26,7 @@
             <tr *ngFor="let rfbLocation of rfbLocations ;trackBy: trackId">
                 <td><a [routerLink]="['../rfb-location', rfbLocation.id ]">{{rfbLocation.id}}</a></td>
                 <td>{{rfbLocation.locationName}}</td>
-                <td>{{rfbLocation.runDayOfWeek}}</td>
+                <td>{{dayOfWeekAsString(rfbLocation.runDayOfWeek)}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

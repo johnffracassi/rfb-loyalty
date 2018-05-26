@@ -1,5 +1,6 @@
 package com.rfb.repository;
 
+import com.rfb.domain.Authority;
 import com.rfb.domain.User;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -28,6 +29,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOneByResetKey(String resetKey);
 
+    Optional<User> findOneByEmail(String email);
+
     Optional<User> findOneByEmailIgnoreCase(String email);
 
     Optional<User> findOneByLogin(String login);
@@ -44,4 +47,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findOneWithAuthoritiesByEmail(String email);
 
     Page<User> findAllByLoginNot(Pageable pageable, String login);
+
+    Page<User> findAllByAuthoritiesEquals(Pageable pageable, Authority authority);
 }

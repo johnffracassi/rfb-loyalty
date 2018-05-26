@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rfb.config.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -93,7 +95,17 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "rfb_location_id")
+    private RfbLocation homeLocation;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<RfbEventAttendance> rfbEventAttendances = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -196,9 +208,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return authorities;
     }
 
+    public void addAuthority(Authority authority) {
+        this.authorities.add(authority);
+    }
+
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
+
 
     public Set<PersistentToken> getPersistentTokens() {
         return persistentTokens;
@@ -206,6 +223,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;
+    }
+
+    public RfbLocation getHomeLocation() {
+        return homeLocation;
+    }
+
+    public void setHomeLocation(RfbLocation homeLocation) {
+        this.homeLocation = homeLocation;
+    }
+
+    public Set<RfbEventAttendance> getRfbEventAttendances() {
+        return rfbEventAttendances;
+    }
+
+    public void setRfbEventAttendances(Set<RfbEventAttendance> rfbEventAttendances) {
+        this.rfbEventAttendances = rfbEventAttendances;
     }
 
     @Override

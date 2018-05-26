@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 
 import {SERVER_API_URL} from '../../app.constants';
@@ -35,6 +35,11 @@ export class UserService {
 
     authorities(): Observable<string[]> {
         return this.http.get<string[]>(SERVER_API_URL + 'api/users/authorities');
+    }
+
+    findByAuthority(authority: string, req?: any): Observable<HttpResponse<User[]>> {
+        const options = createRequestOption(req);
+        return this.http.get<User[]>(this.resourceUrl + '/authority/' + authority, { params: options, observe: 'response' });
     }
 
 }

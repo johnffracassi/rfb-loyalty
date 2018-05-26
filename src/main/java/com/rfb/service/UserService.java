@@ -2,6 +2,7 @@ package com.rfb.service;
 
 import com.rfb.config.Constants;
 import com.rfb.domain.Authority;
+import com.rfb.domain.RfbLocation;
 import com.rfb.domain.User;
 import com.rfb.repository.AuthorityRepository;
 import com.rfb.repository.PersistentTokenRepository;
@@ -157,6 +158,33 @@ public class UserService {
         return user;
     }
 
+    public User createUser(String login, String password, String firstName, String lastName, String email,
+                           String imageUrl, String langKey, RfbLocation location) {
+
+        User newUser = new User();
+        Authority authority = authorityRepository.findOne(AuthoritiesConstants.RUNNER);
+        Set<Authority> authorities = new HashSet<>();
+        String encryptedPassword = passwordEncoder.encode(password);
+        newUser.setLogin(login);
+        // new user gets initially a generated password
+        newUser.setPassword(encryptedPassword);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setEmail(email);
+        newUser.setImageUrl(imageUrl);
+        newUser.setLangKey(langKey);
+        // new user is not active
+        newUser.setActivated(false);
+        // new user gets registration key
+        newUser.setActivationKey(RandomUtil.generateActivationKey());
+        authorities.add(authority);
+        newUser.setAuthorities(authorities);
+        newUser.setHomeLocation(location);
+        userRepository.save(newUser);
+        log.debug("Created Information for User: {}", newUser);
+        return newUser;
+    }
+
     /**
      * Update basic information (first name, last name, email, language) for the current user.
      *
@@ -241,6 +269,11 @@ public class UserService {
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneWithAuthoritiesByLogin(login);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<UserDTO> getAllManagedUsersByAuthority(Pageable pageable, String authority) {
+        return userRepository.findAllByAuthoritiesEquals(pageable, authorityRepository.findOne(authority)).map(UserDTO::new);
     }
 
     @Transactional(readOnly = true)
