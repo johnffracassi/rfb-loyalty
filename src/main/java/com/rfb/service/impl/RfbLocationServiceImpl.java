@@ -83,4 +83,5 @@ public class RfbLocationServiceImpl implements RfbLocationService {
         log.debug("Request to delete RfbLocation : {}", id);
         rfbLocationRepository.delete(id);
     }
+
 }

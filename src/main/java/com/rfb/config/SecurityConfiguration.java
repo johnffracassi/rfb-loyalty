@@ -3,9 +3,9 @@ package com.rfb.config;
 import com.rfb.security.AuthoritiesConstants;
 import com.rfb.security.RfbAjaxAuthenticationFailureHandler;
 import io.github.jhipster.config.JHipsterProperties;
-import io.github.jhipster.security.AjaxAuthenticationFailureHandler;
 import io.github.jhipster.security.AjaxAuthenticationSuccessHandler;
 import io.github.jhipster.security.AjaxLogoutSuccessHandler;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.BeanInitializationException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +32,7 @@ import javax.annotation.PostConstruct;
 @Import(SecurityProblemSupport.class)
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
+@AllArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -45,16 +46,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final CorsFilter corsFilter;
 
     private final SecurityProblemSupport problemSupport;
-
-    public SecurityConfiguration(AuthenticationManagerBuilder authenticationManagerBuilder, UserDetailsService userDetailsService,
-        JHipsterProperties jHipsterProperties, RememberMeServices rememberMeServices,CorsFilter corsFilter, SecurityProblemSupport problemSupport) {
-        this.authenticationManagerBuilder = authenticationManagerBuilder;
-        this.userDetailsService = userDetailsService;
-        this.jHipsterProperties = jHipsterProperties;
-        this.rememberMeServices = rememberMeServices;
-        this.corsFilter = corsFilter;
-        this.problemSupport = problemSupport;
-    }
 
     @PostConstruct
     public void init() {
@@ -141,11 +132,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.GET,"/api/account").permitAll()
             .antMatchers("/api/profile-info").permitAll()
             .antMatchers("/api/rfb-events/**").hasAnyAuthority(AuthoritiesConstants.ADMIN,AuthoritiesConstants.ORGANIZER)
-            .antMatchers("/api/rfb-location/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/rfb-event-attendance/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/rfb-user/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers(HttpMethod.GET,"/api/rfb-locations/**").permitAll()
             .antMatchers("/api/rfb-locations/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .antMatchers(HttpMethod.POST,"/api/rfb-event-attendances").hasAuthority(AuthoritiesConstants.RUNNER)
             .antMatchers("/api/rfb-event-attendances/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers(HttpMethod.POST,"/api/rfb-users/**").permitAll()
             .antMatchers("/api/rfb-users/**").hasAuthority(AuthoritiesConstants.ADMIN)

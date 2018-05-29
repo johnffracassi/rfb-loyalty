@@ -1,6 +1,7 @@
 package com.rfb.service.impl;
 
 import com.rfb.domain.RfbEvent;
+import com.rfb.domain.RfbLocation;
 import com.rfb.repository.RfbEventRepository;
 import com.rfb.repository.RfbLocationRepository;
 import com.rfb.service.RfbEventService;
@@ -13,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 
 
 /**
@@ -82,5 +85,12 @@ public class RfbEventServiceImpl implements RfbEventService {
     public void delete(Long id) {
         log.debug("Request to delete RfbEvent : {}", id);
         rfbEventRepository.delete(id);
+    }
+
+    @Override
+    public RfbEventDTO findByTodayAndLocation(Long locationID) {
+        RfbLocation location = locationRepository.findOne(locationID);
+        RfbEvent rfbEvent = rfbEventRepository.findByEventDateEqualsAndRfbLocationEquals(LocalDate.now(),location);
+        return rfbEventMapper.toDto(rfbEvent);
     }
 }

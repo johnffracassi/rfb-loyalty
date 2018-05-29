@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {SERVER_API_URL} from '../../app.constants';
 
@@ -71,4 +71,5 @@ export class RfbLocationService {
         const copy: RfbLocation = Object.assign({}, rfbLocation);
         return copy;
     }
+
 }

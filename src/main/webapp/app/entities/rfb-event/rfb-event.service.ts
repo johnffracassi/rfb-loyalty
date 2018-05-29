@@ -7,7 +7,6 @@ import {JhiDateUtils} from 'ng-jhipster';
 
 import {RfbEvent} from './rfb-event.model';
 import {createRequestOption} from '../../shared';
-import {RfbLocation} from '../rfb-location';
 
 export type EntityResponseType = HttpResponse<RfbEvent>;
 
@@ -45,10 +44,10 @@ export class RfbEventService {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }
 
-    findByLocation(locationId: number): Observable<HttpResponse<RfbLocation[]>> {
+    findByLocation(locationId: number): Observable<HttpResponse<RfbEvent>> {
         const options: HttpParams = new HttpParams();
-        return this.http.get<RfbLocation[]>(`${this.resourceUrl}/byLocation/${locationId}`, { params: options, observe: 'response' })
-            .map((res: HttpResponse<RfbLocation[]>) => this.convertArrayResponse(res));
+        return this.http.get<RfbEvent>(`${this.resourceUrl}/location/${locationId}`, { params: options, observe: 'response' })
+            .map((res: HttpResponse<RfbEvent>) => this.convertResponse(res));
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {
